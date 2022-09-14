@@ -1,0 +1,33 @@
+; Top Design: "MyLibrary2_lib:SP_NF_GainMatchK:schematic"
+; Netlisted using Hierarchy Policy: "Standard"
+
+Options ResourceUsage=yes UseNutmegFormat=no EnableOptim=no TopDesignName="MyLibrary2_lib:SP_NF_GainMatchK:schematic" DcopOutputNodeVoltages=yes DcopOutputPinCurrents=yes DcopOutputAllSweepPoints=no DcopOutputDcopType=0
+S_Param:SP1 CalcS=yes CalcGroupDelay=yes GroupDelayAperture=1e-4 FreqConversion=no FreqConversionPort=1 StatusLevel=2 CalcNoise=yes SortNoise=0 BandwidthForNoise=1.0 Hz DevOpPtLevel=0 \
+SweepVar="freq" SweepPlan="SP1_stim" OutputPlan="SP1_Output" 
+
+SweepPlan: SP1_stim Start=1 GHz Stop=3 GHz Step=0.1 GHz 
+
+OutputPlan:SP1_Output \
+      Type="Output" \
+      UseEquationNestLevel=yes \
+      EquationNestLevel=2 \
+      EquationName[1]="Z0" \
+      UseSavedEquationNestLevel=yes \
+      SavedEquationNestLevel=2
+
+#load "python","LinearCollapse"
+Component Module="LinearCollapse" Type="ModelExtractor" NetworkRepresentation=2
+
+Z0=50
+Port:Term1  N__1 0 Num=1 Z=Z0 Noise=yes 
+Port:Term2  N__2 0 Num=2 Z=Z0 Noise=yes 
+#uselib "ckt" , "S2P"
+S2P:SNP1  N__1 N__2 0 File="C:\Users\student\MyWorkspace2_wrk\data\AT310113C.s2p" Type="touchstone" InterpMode="linear" InterpDom="" ExtrapMode="interpMode" Temp=27.0 CheckPassivity=0 
+
+Options:Options1 Temp=16.85 Tnom=25 TopologyCheck=yes ForceS_Params=yes V_RelTol=1e-6  \
+I_RelTol=1e-6 GiveAllWarnings=yes MaxWarnings=10 ForceM_Params=yes DC_ReadInitialGuess=no  \
+DC_WriteFinalSolution=no TopologyCheckMessages=no GPU=no doDeltaAC=no ReduceSPort=no  \
+ReduceSPortRatio=0.5 WarnSOA=yes MaxWarnSOA=5 Census=no MinNodalR=1e-2 Ohm  \
+LargeCapThreshold=1e-3 F EnableAssertChecks=no EnableSpareRemoval=no 
+
+aele mu_load=mu(S);mu_source=mu_prime(S);match_input=sm_gamma1(S);Source_stabcir=s_stab_circle(S,51);Load_stabcir=l_stab_circle(S,51);

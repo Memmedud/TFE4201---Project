@@ -1,0 +1,11 @@
+INCLUDE $HPEESOF_DIR/oalibs/analog_rf.defs
+INCLUDE $HPEESOF_DIR/oalibs/dsp.defs
+INCLUDE $HPEESOF_DIR/custom/libraries/Cree/Discrete/Cree_Wlfspd_ADS_v16p0/lib.defs
+INCLUDE $HPEESOF_DIR/custom/libraries/Cree/MMIC/v3v4_ADS_rev4p40_20210921/lib.defs
+INCLUDE $HPEESOF_DIR/custom/libraries/Cree/MMIC/v5/WGv5_28Volt_ADS_rev2p41_20210719/lib.defs
+INCLUDE $HPEESOF_DIR/custom/libraries/Johanson/JTI_CAPS_S_Series/lib.defs
+INCLUDE $HPEESOF_DIR/custom/libraries/Johanson/JTI_Inductors_L14C_Series/lib.defs
+INCLUDE $HPEESOF_DIR/custom/libraries/Mortens_lib/Johanson_lib_v1.0/lib.defs
+INCLUDE $HPEESOF_DIR/custom/libraries/muRata/murata_lib_ads_s_2206e/muRataLibWeb_EIA/lib.defs
+DEFINE MyLibrary2_lib MyLibrary2_lib
+ASSIGN MyLibrary2_lib libMode shared

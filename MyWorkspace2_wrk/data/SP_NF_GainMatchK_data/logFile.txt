@@ -1,0 +1,35 @@
+
+hpeesofsim (*) 552.update2.3 Jul 23 2022, MINT version 5
+    (64-bit windows built: Fri Jul 22, 2022 18:53:22 +0000)
+
+
+***** Simulation started at Wed Sep 14 13:40:50 2022
+      Running on host: "LAB-PC"
+      In Directory: "C:\Users\student\MyWorkspace2_wrk\data"
+      Process ID: 12872
+
+Warning detected by hpeesofsim during netlist flattening.
+    Touchstone file parser warning:
+    Line - 4, Column - 7 : # is not at the start of the line
+    File: `C:/Users/student/MyWorkspace2_wrk/data/AT310113C.s2p'.
+
+
+SP SP1[1] <MyLibrary2_lib:SP_NF_GainMatchK:schematic>   freq=(1 GHz->3 GHz)
+Warning detected by hpeesofsim during SP analysis `SP1'.
+    Noise data in the Touchstone file `C:/Users/student/MyWorkspace2_wrk/data/AT310113C.s2p'
+    does not cover the current value of `freq'. Therefore, if noise
+    simulation is requested the data will be obtained by extrapolation.
+
+Warning detected by hpeesofsim during SP analysis `SP1'.
+    Nonphysical noise data in S_Port `SNP1.CMP1'.
+    When NFmin is used, set Rn >= 5.642 to avoid negative noise sources.
+
+Warning detected by hpeesofsim during SP analysis `SP1'.
+    Negative noise source in S_Port `SNP1.CMP1' set to zero.
+    Noise simulation results may not be correct due to bad data for NFmin, Rn and Sopt.
+
+
+
+Resource usage:
+  Total stopwatch time     =     0.72 seconds.
+
